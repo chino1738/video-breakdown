@@ -1,0 +1,43 @@
+:root {
+  --bg: #0b0b0d;
+  --panel: #141418;
+  --panel-2: #1c1c22;
+  --line: #2a2a32;
+  --text: #f2f1ec;
+  --muted: #8e8d96;
+  --hot: #ff5a36;
+  --hot-soft: rgba(255, 90, 54, 0.14);
+  --ok: #4ade80;
+  --radius: 18px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); }
+body {
+  font-family: var(--font-display), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+  background-image: radial-gradient(1200px 500px at 85% -10%, rgba(255, 90, 54, 0.10), transparent 60%);
+}
+.mono { font-family: var(--font-mono), ui-monospace, monospace; }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+input { font: inherit; }
+.field {
+  width: 100%; background: var(--panel); color: var(--text); border: 1px solid var(--line);
+  border-radius: 14px; padding: 15px 16px; font-size: 16px; outline: none; transition: border-color .15s, box-shadow .15s;
+}
+.field:focus { border-color: var(--hot); box-shadow: 0 0 0 4px var(--hot-soft); }
+.go {
+  border: 0; border-radius: 14px; padding: 15px 22px; background: var(--hot); color: #160703; font-weight: 700;
+  font-size: 16px; transition: transform .12s ease, filter .15s; white-space: nowrap;
+}
+.go:hover { filter: brightness(1.08); }
+.go:active { transform: translateY(1px) scale(0.99); }
+.go:disabled { opacity: .55; cursor: wait; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.label { font-family: var(--font-mono), monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--hot); }
+.rise { animation: rise .45s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.scan-bar { height: 3px; border-radius: 3px; background: linear-gradient(90deg, transparent, var(--hot), transparent); background-size: 50% 100%; background-repeat: no-repeat; animation: sweep 1.2s linear infinite; }
+@keyframes sweep { from { background-position: -50% 0; } to { background-position: 150% 0; } }
+@media (prefers-reduced-motion: reduce) { .rise, .scan-bar { animation: none; } }

@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.env*
+!.env.example
+data/
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
